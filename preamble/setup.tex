@@ -1,0 +1,101 @@
+% =====================================================================
+%  setup.tex — الحزم والخطوط وتخطيط الصفحة
+%  يُترجَم بـ XeLaTeX فقط (في Overleaf: Menu > Compiler > XeLaTeX)
+% =====================================================================
+
+% ---------- تخطيط الصفحة ----------
+\usepackage[a4paper,top=2.4cm,bottom=2.4cm,inner=2.2cm,outer=2.2cm,headheight=16pt]{geometry}
+
+% ---------- حزم عامة (تُحمَّل قبل polyglossia/bidi) ----------
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage[most]{tcolorbox}
+\usepackage{etoolbox}
+\usepackage{needspace}
+\usepackage[hidelinks,bookmarksnumbered,unicode]{hyperref}
+
+% ---------- اللغة: العربية لغة رئيسية ----------
+\usepackage{polyglossia}
+\setmainlanguage[numerals=mashriq]{arabic}
+\setotherlanguage{english}
+
+% ---------- الخطوط (مضمّنة في مجلد fonts/ لتعمل على أي جهاز وعلى Overleaf) ----------
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{Amiri}[
+  Path=fonts/,
+  Extension=.ttf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  BoldItalicFont=*-BoldItalic,
+  Script=Arabic,
+  Scale=1.0]
+\newfontfamily\arabicfont{Amiri}[
+  Path=fonts/,
+  Extension=.ttf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  BoldItalicFont=*-BoldItalic,
+  Script=Arabic]
+\newfontfamily\quranfont{AmiriQuran}[Path=fonts/,Extension=.ttf,Script=Arabic,Scale=1.05]
+\newfontfamily\englishfont{Amiri}[Path=fonts/,Extension=.ttf,UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-Italic]
+
+% ---------- المسافات ----------
+\linespread{1.25}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+\setlist{itemsep=2pt,topsep=3pt,leftmargin=*}
+
+% ---------- رأس الصفحة وتذييلها ----------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\small\color{headcolor}\leftmark}
+\fancyfoot[C]{\color{headcolor}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\color{gold}\hrule height 0.6pt}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\color{headcolor}\thepage}\renewcommand{\headrulewidth}{0pt}}
+
+% ---------- العناوين ----------
+% الباب (chapter) بلا رقم ظاهر، بإطار مزخرف
+\titleformat{\chapter}[block]
+  {\centering\normalfont}
+  {}{0pt}
+  {\begin{tcolorbox}[enhanced,colback=parchment,colframe=gold,boxrule=1.2pt,
+     arc=3mm,width=0.8\linewidth,center,halign=center,
+     borderline={0.4pt}{3pt}{gold}]
+     \Huge\bfseries\color{maroon}}
+  [\end{tcolorbox}]
+\titlespacing*{\chapter}{0pt}{-10pt}{18pt}
+
+\titleformat{\section}[block]
+  {\needspace{8\baselineskip}\normalfont\Large\bfseries\color{maroon}}
+  {}{0pt}
+  {}
+  [{\color{gold}\titlerule[0.8pt]}]
+\titlespacing*{\section}{0pt}{14pt}{8pt}
+
+\titleformat{\subsection}[block]
+  {\normalfont\large\bfseries\color{headcolor}}
+  {}{0pt}{}
+\titlespacing*{\subsection}{0pt}{10pt}{4pt}
+
+\setcounter{secnumdepth}{-1}   % بلا ترقيم للعناوين
+\setcounter{tocdepth}{1}       % الفهرس: الأبواب والأقسام
+
+% تنسيق الفهرس
+\titlecontents{chapter}[0pt]{\addvspace{6pt}\large\bfseries\color{maroon}}
+  {}{}{\titlerule*[0.6pc]{.}\contentspage}
+\titlecontents{section}[1.5em]{\normalsize}
+  {}{}{\titlerule*[0.6pc]{.}\contentspage}

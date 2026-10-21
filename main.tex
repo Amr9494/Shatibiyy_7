@@ -1,0 +1,42 @@
+% =====================================================================
+%  شرح الشاطبية — حرز الأماني ووجه التهاني
+%  الملف الرئيسي. يُترجَم بـ XeLaTeX.
+%
+%  لإضافة باب جديد:
+%    ١) انسخ chapters/_template.tex باسم جديد (مثلًا chapters/05-idgham-kabir.tex)
+%    ٢) أضف سطر \include{chapters/05-idgham-kabir} في المكان المناسب أدناه
+%  لترجمة باب واحد فقط أثناء الكتابة (أسرع): فعّل \includeonly أدناه.
+% =====================================================================
+\documentclass[12pt,oneside]{book}
+
+\input{preamble/setup}
+\input{preamble/colors}
+\input{preamble/qurra}
+\input{preamble/boxes}
+
+% \includeonly{chapters/04-fatiha}   % ← أزل علامة % لترجمة باب واحد فقط
+
+\begin{document}
+
+\frontmatter
+\input{frontmatter/title}
+\tableofcontents
+\include{frontmatter/guide}
+
+\mainmatter
+% ---------------- مقدمة الناظم (خطبة الكتاب) : الأبيات ١–٩٤ ----------------
+\include{chapters/01-khutba/01-hamd}       % ١–١٩   : الحمد وفضل القرآن وأهله
+\include{chapters/01-khutba/02-qurra}      % ٢٠–٤٣  : القراء السبعة ورواتهم
+\include{chapters/01-khutba/03-rumuz}      % ٤٤–٦٦  : الرموز والاصطلاحات
+\include{chapters/01-khutba/04-wasaya}     % ٦٧–٩٤  : تسمية القصيدة والوصايا
+
+% ---------------- أبواب الأصول ----------------
+\include{chapters/02-istiadha}             % ٩٥–٩٩
+\include{chapters/03-basmala}              % ١٠٠–١٠٧
+\include{chapters/04-fatiha}               % ١٠٨–١١٥
+% \include{chapters/05-idgham-kabir}       % ١١٦– ... (الباب القادم)
+
+\backmatter
+\include{frontmatter/sources}
+
+\end{document}

@@ -1,0 +1,72 @@
+% =====================================================================
+%  boxes.tex — صناديق الشرح وأمر البيت
+% =====================================================================
+\tcbset{
+  shatibox/.style={enhanced,breakable,arc=2mm,boxrule=0.6pt,
+    left=6pt,right=6pt,top=4pt,bottom=4pt,
+    fonttitle=\bfseries,coltitle=white,
+    before skip=6pt,after skip=6pt},
+}
+
+% ---------- البيت ----------
+% \bayt{رقم البيت}{الشطر الأول}{الشطر الثاني}
+\newcounter{baytnum}
+\newcommand{\bayt}[3]{%
+  \begin{tcolorbox}[enhanced,colback=parchment,colframe=gold,boxrule=0.8pt,arc=2mm,
+      left=4pt,right=4pt,top=5pt,bottom=5pt,before skip=10pt,after skip=6pt,
+      borderline west={2.5pt}{0pt}{gold},borderline east={2.5pt}{0pt}{gold}]
+    \large
+    \begin{tabularx}{\linewidth}{@{}>{\centering\arraybackslash}m{2.2em}
+                                  >{\centering\arraybackslash}X
+                                  >{\centering\arraybackslash}X@{}}
+      {\normalsize\setcounter{baytnum}{#1}\textcolor{gold}{\textbf{(\thebaytnum)}}} & #2 & #3
+    \end{tabularx}
+  \end{tcolorbox}\label{bayt:#1}}
+
+% بيت طويل يُكتب شطراه سطرين (عند الحاجة)
+\newcommand{\baytlong}[3]{%
+  \begin{tcolorbox}[enhanced,colback=parchment,colframe=gold,boxrule=0.8pt,arc=2mm,
+      left=4pt,right=4pt,top=5pt,bottom=5pt,before skip=10pt,after skip=6pt,
+      borderline west={2.5pt}{0pt}{gold},borderline east={2.5pt}{0pt}{gold}]
+    \large
+    {\normalsize\setcounter{baytnum}{#1}\textcolor{gold}{\textbf{(\thebaytnum)}}}\quad #2\par
+    \hfill #3\par
+  \end{tcolorbox}\label{bayt:#1}}
+
+% ---------- معاني الكلمات ----------
+\newtcolorbox{mufradat}{shatibox,colback=vocabback,colframe=vocabframe,
+  title={معاني الكلمات}}
+% \kalima{الكلمة}{معناها}
+\newcommand{\kalima}[2]{\textbf{\textcolor{vocabframe}{#1}}: #2\par}
+
+% ---------- المعنى ----------
+% \maana  أو  \maana[(الأبيات ١١٣–١١٥)]
+\newcommand{\maana}[1][]{\par\smallskip\textbf{\textcolor{maroon}{المعنى\ifx\relax#1\relax\else\ #1\fi: }}}
+
+% ---------- القراءات ----------
+\newtcolorbox{qiraat}{shatibox,colback=white,colframe=gold!80!black,
+  title={\textcolor{white}{القراءات في البيت}},colbacktitle=gold!80!black}
+% \qira{القراء}{القراءة}
+\newcommand{\qira}[2]{\noindent\textcolor{gold}{$\triangleleft$}\ #1 \;:\; #2\par}
+
+% ---------- القاعدة ----------
+\newtcolorbox{qaida}[1][القاعدة]{shatibox,colback=ruleback,colframe=ruleframe,title={#1}}
+
+% ---------- الأمثلة ----------
+\newtcolorbox{amthila}[1][أمثلة من القرآن]{shatibox,colback=exback,colframe=exframe,title={#1}}
+
+% ---------- التحريرات ----------
+\newtcolorbox{tahrir}[1][تحريرات (من إتحاف البرية بتحريرات الشاطبية)]{shatibox,
+  colback=tahrirback,colframe=tahrirframe,title={#1}}
+% بيت من الإتحاف داخل صندوق التحريرات
+\newcounter{ithafnum}
+\newcommand{\ithaf}[3]{\par{\centering\setcounter{ithafnum}{#1}\textcolor{tahrirframe}{\textbf{(\theithafnum)}}\ #2 \quad\ \ #3\par}\smallskip}
+
+% ---------- تنبيه ----------
+\newtcolorbox{tanbih}[1][تنبيه]{shatibox,colback=noteback,colframe=noteframe,title={#1}}
+
+% ---------- الخلاصة ----------
+\newtcolorbox{khulasa}[1][خلاصة]{shatibox,colback=sumback,colframe=sumframe,title={#1}}
+
+% فاصل بين الأبيات
+\newcommand{\fasl}{\par\smallskip{\centering\textcolor{gold}{\large ۞}\par}\smallskip}

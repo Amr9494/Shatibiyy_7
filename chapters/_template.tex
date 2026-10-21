@@ -1,0 +1,60 @@
+% =====================================================================
+%  قالب باب جديد — انسخ هذا الملف باسم جديد ثم أضفه في main.tex بـ \include
+%  مثال:  chapters/05-idgham-kabir.tex   ثم   \include{chapters/05-idgham-kabir}
+% =====================================================================
+\chapter{اسم الباب}
+
+مقدمة قصيرة: ما موضوع الباب؟ وكم عدد أبياته؟
+
+\section{عنوان المسألة}
+
+% ---------- البيت ----------
+% \bayt{رقم}{الشطر الأول}{الشطر الثاني}
+% داخل البيت:
+%   \qw{كلمة}          ← الكلمة القرآنية المختلف فيها (تظليل أصفر)
+%   \rz{Asim}{نَاصِرٌ}  ← كلمة فيها رمز قارئ (لون القارئ). المفاتيح:
+%                         Nafi, IbnKathir, AbuAmr, IbnAmir, Asim, Hamza, Kisai
+%   \rzg{صُحْبَةٌ}      ← رمز جماعة (ث خ ذ ظ غ ش، صحبة، صحاب، عم، سما، حق، نفر، حرمي، حصن)
+%   \qname{Hamza}{حَمْزَةٌ} ← اسم صريح ملوّن داخل البيت
+%   تنبيه: لوّن الكلمة كاملة، لا حرفًا واحدًا منها، حتى لا ينقطع اتصال الحروف العربية.
+\bayt{000}{الشطر الأول}{الشطر الثاني}
+
+\begin{mufradat}
+\kalima{الكلمة}{معناها.}
+\end{mufradat}
+
+\maana الشرح المختصر للبيت.
+
+\begin{qiraat}
+\qira{\Asim{} و\Kisai}{القراءة الأولى: \ayah{...}}
+\qira{\Baqun}{القراءة الثانية}
+\end{qiraat}
+
+\begin{qaida}[عنوان القاعدة]
+تفسير القاعدة.
+\end{qaida}
+
+\begin{amthila}
+\begin{itemize}
+\item \ayah{نص الآية} \src{السورة: رقم الآية} \ila{} القراءة.
+\end{itemize}
+\end{amthila}
+
+\begin{tahrir}
+\ithaf{رقم}{شطر}{شطر}
+الشرح.
+\end{tahrir}
+
+\begin{tanbih}
+تنبيه.
+\end{tanbih}
+
+\section{خلاصة الباب}
+\begin{khulasa}[خلاصة]
+جدول أو نقاط.
+\end{khulasa}
+
+% أسماء القراء الجاهزة للنص:
+% \Nafi \Qalun \Warsh | \IbnKathir \Bazzi \Qunbul | \AbuAmr \AbiAmr \DuriAbuAmr \Susi
+% \IbnAmir \Hisham \IbnDhakwan | \Asim \Shuba \Hafs | \Hamza \Khalaf \Khallad
+% \Kisai \AbulHarith \DuriKisai | \Baqun

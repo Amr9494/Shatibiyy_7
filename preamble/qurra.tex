@@ -1,0 +1,61 @@
+% =====================================================================
+%  qurra.tex — أوامر أسماء القراء والرواة والرموز
+%  الاستعمال في النص:  \Asim{} و\Kisai{}  ← يظهر الاسم بلون صاحبه
+% =====================================================================
+
+% اسم ملوَّن عام:  \qname{لون}{الاسم}
+\newcommand{\qname}[2]{\textcolor{c#1}{\textbf{#2}}}
+
+% ---------- نافع وراوياه ----------
+\newcommand{\Nafi}{\qname{Nafi}{نافع}}
+\newcommand{\Qalun}{\qname{Nafi}{قالون}}
+\newcommand{\Warsh}{\qname{Nafi}{ورش}}
+% ---------- ابن كثير وراوياه ----------
+\newcommand{\IbnKathir}{\qname{IbnKathir}{ابن كثير}}
+\newcommand{\Bazzi}{\qname{IbnKathir}{البزي}}
+\newcommand{\Qunbul}{\qname{IbnKathir}{قنبل}}
+% ---------- أبو عمرو وراوياه ----------
+\newcommand{\AbuAmr}{\qname{AbuAmr}{أبو عمرو}}
+\newcommand{\AbiAmr}{\qname{AbuAmr}{أبي عمرو}}
+\newcommand{\DuriAbuAmr}{\qname{AbuAmr}{الدوري عن أبي عمرو}}
+\newcommand{\Susi}{\qname{AbuAmr}{السوسي}}
+% ---------- ابن عامر وراوياه ----------
+\newcommand{\IbnAmir}{\qname{IbnAmir}{ابن عامر}}
+\newcommand{\Hisham}{\qname{IbnAmir}{هشام}}
+\newcommand{\IbnDhakwan}{\qname{IbnAmir}{ابن ذكوان}}
+% ---------- عاصم وراوياه ----------
+\newcommand{\Asim}{\qname{Asim}{عاصم}}
+\newcommand{\Shuba}{\qname{Asim}{شعبة}}
+\newcommand{\Hafs}{\qname{Asim}{حفص}}
+% ---------- حمزة وراوياه ----------
+\newcommand{\Hamza}{\qname{Hamza}{حمزة}}
+\newcommand{\Khalaf}{\qname{Hamza}{خلف}}
+\newcommand{\Khallad}{\qname{Hamza}{خلاد}}
+% ---------- الكسائي وراوياه ----------
+\newcommand{\Kisai}{\qname{Kisai}{الكسائي}}
+\newcommand{\AbulHarith}{\qname{Kisai}{أبو الحارث}}
+\newcommand{\DuriKisai}{\qname{Kisai}{الدوري عن الكسائي}}
+
+% ---------- الباقون ----------
+\newcommand{\Baqun}{\textbf{\textcolor{black!70}{الباقون}}}
+
+% ---------- الرموز داخل البيت ----------
+% كلمة فيها رمز قارئ:  \rz{Kisai}{راويه}
+\newcommand{\rz}[2]{\textcolor{c#1}{\textbf{#2}}}
+% كلمة فيها رمز جماعة (ث خ ذ ظ غ ش أو صحبة، عم ...):  \rzg{صحبة}
+\newcommand{\rzg}[1]{\textcolor{cGroup}{\textbf{#1}}}
+% الكلمة القرآنية المختلف فيها داخل البيت:  \qw{مالك}
+\newcommand{\qw}[1]{{\setlength{\fboxsep}{1.2pt}\colorbox{wordbg}{#1}}}
+
+% ---------- الآيات ----------
+% \ayah{مَالِكِ يَوْمِ الدِّينِ}  ← ﴿ ... ﴾ بخط المصحف
+\newcommand{\ayah}[1]{{\quranfont\textcolor{ayahbracket}{﴿}#1\textcolor{ayahbracket}{﴾}}}
+% \src{الفاتحة: ٤}  ← مرجع الآية
+\newcommand{\src}[1]{{\small\textcolor{black!60}{[#1]}}}
+
+% حرف رمز داخل الجداول بخلفية ملوّنة:  \rzl{Nafi}{أ}
+\newcommand{\rzl}[2]{{\setlength{\fboxsep}{2pt}\colorbox{c#1!15}{\textcolor{c#1}{\textbf{\large #2}}}}}
+\newcommand{\rzlg}[1]{{\setlength{\fboxsep}{2pt}\colorbox{cGroup!15}{\textcolor{cGroup}{\textbf{\large #1}}}}}
+
+% سهم «يؤدي إلى» باتجاه القراءة العربية
+\newcommand{\ila}{\ $\leftarrow$\ }
